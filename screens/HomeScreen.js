@@ -25,6 +25,7 @@ export default class HomeScreen extends React.Component {
   };
 
   render() {
+    const {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
 
@@ -36,7 +37,7 @@ export default class HomeScreen extends React.Component {
             />
 
             <Button style={styles.tapIn}   onPress={() => {
-              Debug.log("hello");
+              navigate("Links");
           } } title="Tap In">
 
           </Button>
