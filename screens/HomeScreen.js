@@ -29,20 +29,17 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
 
-           <View style={styles.welcomeContainer}>
+           <TouchableOpacity style={styles.welcomeContainer} onPress={() => {
+              navigate("Links");
+          } }>
             <Image
               source={
                 require("../assets/images/clouds.png")
               }
             />
 
-            <Button style={styles.tapIn}   onPress={() => {
-              navigate("Links");
-          } } title="Tap In">
+            </TouchableOpacity>
 
-          </Button>
-
-          </View>
       </View>
     );
   }
@@ -63,9 +60,5 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
     marginTop: 3,
     marginLeft: -10
-  },
-  tapIn: {
-    width: 100,
-    height: 80,
   },
 });

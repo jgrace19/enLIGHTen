@@ -1,27 +1,61 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
+import { Alert, AppRegistry, Button, StyleSheet, View, ScrollView, TouchableOpacity, Text  } from 'react-native';
 
 export default class LinksScreen extends React.Component {
   static navigationOptions = {
     title: 'Links',
   };
 
+  _onPressButton() {
+    Alert.alert('You tapped the button!')
+  }
+
   render() {
     return (
-      <ScrollView style={styles.container}>
-        {/* Go ahead and delete ExpoLinksView and replace it with your
-           * content, we just wanted to provide you with some helpful links */}
-        <ExpoLinksView />
-      </ScrollView>
+      <View style={styles.container}>
+        <View style={styles.buttonContiner}>
+        <TouchableOpacity onPress={this._onPressButton}>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>single player</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this._onPressButton}>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>multi player</Text>
+          </View>
+        </TouchableOpacity>
+       
+        </View> 
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
+    alignItems: 'center',
+    color: 'white',
   },
+  buttonContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+  },
+  button: {
+    padding: 20,
+    marginBottom: 30,
+    width: 200,
+    height: 80,
+    alignItems: 'center',
+    backgroundColor: '#2196F3',
+    borderStyle: 'solid',
+    borderColor: 'black',
+    textAlign: 'center',
+    borderRadius: 30,
+  },
+  buttonText: {
+    color: 'white',
+    paddingBottom: 10,
+  }
 });
