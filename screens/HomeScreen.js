@@ -13,10 +13,10 @@ import { WebBrowser } from "expo";
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import { MonoText } from "../components/StyledText";
-import LinksScreen from '../screens/LinksScreen';
+import ModeScreen from '../screens/ChooseModeScreen';
 
 const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+  Links: ModeScreen,
 });
 
 export default class HomeScreen extends React.Component {

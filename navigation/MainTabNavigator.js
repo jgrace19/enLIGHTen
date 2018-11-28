@@ -4,8 +4,8 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import ModeScreen from '../screens/ChooseModeScreen';
+import SettingsScreen from '../screens/HelpScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -26,7 +26,7 @@ HomeStack.navigationOptions = {
 };
 
 const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+  Links: ModeScreen,
 });
 
 LinksStack.navigationOptions = {
@@ -52,6 +52,21 @@ SettingsStack.navigationOptions = {
     />
   ),
 };
+
+const HelpStack = createStackNavigator({
+  Settings: SettingsScreen,
+});
+
+HelpStack.navigationOptions = {
+  tabBarLabel: 'Not feeling well? swipe up for help',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
+    />
+  ),
+};
+
 
 export default createBottomTabNavigator({
   HomeStack,
