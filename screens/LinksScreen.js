@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, AppRegistry, Button, StyleSheet, View, ScrollView, TouchableOpacity, Text  } from 'react-native';
+import { Alert, AppRegistry, Button, StyleSheet, View, ScrollView, TouchableOpacity, Text, Image  } from 'react-native';
 
 export default class LinksScreen extends React.Component {
   static navigationOptions = {
@@ -13,6 +13,13 @@ export default class LinksScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <View style={styles.imageContainer}>
+         <Image style={{width: 300, height: 300}}
+              source={
+                require("../assets/images/letsPlay.png")
+              }
+            />
+          </View>
         <View style={styles.buttonContiner}>
         <TouchableOpacity onPress={this._onPressButton}>
           <View style={styles.button}>
@@ -35,10 +42,12 @@ export default class LinksScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    color: 'white',
+    backgroundColor: 'white',
+    flex: 1,
+    flexDirection: 'column',
   },
   buttonContainer: {
-    flex: 1,
+    flex: 2,
     flexDirection: 'column',
     justifyContent: 'space-between',
   },
@@ -48,14 +57,19 @@ const styles = StyleSheet.create({
     width: 200,
     height: 80,
     alignItems: 'center',
-    backgroundColor: '#2196F3',
+    backgroundColor: 'white',
     borderStyle: 'solid',
     borderColor: 'black',
+    borderRadius: 4,
+    borderWidth: 0.5,
     textAlign: 'center',
     borderRadius: 30,
   },
   buttonText: {
-    color: 'white',
+    color: 'black',
     paddingBottom: 10,
+  },
+  imageContainer: {
+    flex: .7,
   }
 });
