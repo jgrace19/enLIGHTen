@@ -31,8 +31,8 @@ export default class HomeScreen extends React.Component {
 
            <TouchableOpacity style={styles.welcomeContainer} onPress={() => {
               navigate("Links");
-          } }>
-            <Image
+            }}>
+            <Image style={{height: 850, width: 430}}
               source={
                 require("../assets/images/clouds.png")
               }
@@ -55,8 +55,7 @@ const styles = StyleSheet.create({
   welcomeContainer: {
   },
   welcomeImage: {
-    width: 100,
-    height: 80,
+    flex: 1,
     resizeMode: "contain",
     marginTop: 3,
     marginLeft: -10
