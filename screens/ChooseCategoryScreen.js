@@ -1,35 +1,47 @@
 import React from 'react';
 import { Alert, AppRegistry, Button, StyleSheet, View, ScrollView, TouchableOpacity, Text, Image  } from 'react-native';
+import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 export default class LinksScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Links',
-  };
 
   _onPressButton() {
     Alert.alert('You tapped the button!')
   }
 
   render() {
+    const {navigate} = this.props.navigation;
+
     return (
       <View style={styles.container}>
         <View style={styles.imageContainer}>
-         <Image style={{width: 300, height: 300}}
+         <Image style={{width: 400, height: 150}}
               source={
-                require("../assets/images/letsPlay.png")
+                require("../assets/images/pickCategory.png")
               }
             />
           </View>
         <View style={styles.buttonContiner}>
         <TouchableOpacity onPress={this._onPressButton}>
           <View style={styles.button}>
-            <Text style={styles.buttonText}>single player</Text>
+            <Text style={styles.buttonText}>acedemic</Text>
           </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={this._onPressButton}>
           <View style={styles.button}>
-            <Text style={styles.buttonText}>multi player</Text>
+            <Text style={styles.buttonText}>people</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this._onPressButton}>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>funny stuff</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this._onPressButton}>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>surprise me</Text>
           </View>
         </TouchableOpacity>
        
@@ -72,6 +84,6 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   imageContainer: {
-    flex: .7,
+    flex: .6,
   }
 });

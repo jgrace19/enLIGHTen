@@ -1,16 +1,26 @@
 import React from 'react';
+import { WebBrowser } from "expo";
+
+import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+
 import { Alert, AppRegistry, Button, StyleSheet, View, ScrollView, TouchableOpacity, Text, Image  } from 'react-native';
 
-export default class LinksScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Links',
-  };
+import CategoryScreen from '../screens/ChooseCategoryScreen';
 
+  const LinksStack = createStackNavigator({
+    C: CategoryScreen,
+  });
+
+export default class ModeScreen extends React.Component {
+  static navigationOptions = {
+    header: null
+  };
   _onPressButton() {
     Alert.alert('You tapped the button!')
   }
 
   render() {
+    const {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
         <View style={styles.imageContainer}>
@@ -21,13 +31,17 @@ export default class LinksScreen extends React.Component {
             />
           </View>
         <View style={styles.buttonContiner}>
-        <TouchableOpacity onPress={this._onPressButton}>
+        <TouchableOpacity onPress={() => {
+              navigate("C");
+            }}>
           <View style={styles.button}>
             <Text style={styles.buttonText}>single player</Text>
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this._onPressButton}>
+        <TouchableOpacity onPress={() => {
+              navigate("C");
+            }}>
           <View style={styles.button}>
             <Text style={styles.buttonText}>multi player</Text>
           </View>
@@ -72,6 +86,6 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   imageContainer: {
-    flex: .7,
+    flex: .6,
   }
 });
